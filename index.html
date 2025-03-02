@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Envelope + Letter (Open/Close on Click)</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Querida momo.</strong>
+                        <p>
+                            Eu queria te falar que, graças a você eu entendi o significado da palavra AMOR,
+                            amar é o frio na barriga ao ver a pessoa, amar é aquele sorriso bobo de repente,
+                            amar é querer cuidar,independente do que for,
+                            amar é querer estar com aquela pessoa, até nos momentos difíceis,
+                            amar é querer uma eternidade com a pessoa.
+                            você me mostrou a vida, e hoje você se tornou a minha vida,
+                            e é por isso Mariana, que Eu Amo Você, você é a minha pessoa,
+                            Eu Felipe Amo Você, Hoje, Amanhã, e Sempre, até o fim dos tempos. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+    </div>
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+        });
+    </script>
+</body>
+</html>

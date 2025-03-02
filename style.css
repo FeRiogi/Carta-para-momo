@@ -1,0 +1,121 @@
+:root{
+  --primary: #fff;
+  --bg-color: rgba(10, 90, 104, 0.418);
+  --bg-envelope-color: #f5edd1;
+  --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --txt-color: #444;
+  --heart-color: rgb(50, 158, 230);
+}
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.container > .envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
+}
+.container > .envelope-wrapper > .envelope {
+  position: relative;
+  width: 340px;
+  height: 250px;
+}
+.container > .envelope-wrapper > .envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 200px solid var(--envelope-tab);
+  border-right: 178px solid transparent;
+  border-left: 162px solid transparent;
+  transform-origin: top;
+  transition: all 2s ease-in-out 0.7s;
+}
+.container > .envelope-wrapper > .envelope::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  width: 0px;
+  height: 0px;
+  border-top: 180px solid transparent;
+  border-right: 170px solid var(--envelope-cover);
+  border-bottom: 160px solid var(--envelope-cover);
+  border-left: 170px solid var(--envelope-cover);
+  
+}
+.envelope > .letter {
+  position: absolute;
+  right: 15%;
+  bottom: -20%; 
+  width: 65%;
+  height: 100%;
+  background: var(--primary);
+  text-align: center;
+  transition: all 1s ease-in-out;
+  transition: bottom 0.5s ease-in-out, transform 0.5s ease-in-out;
+  box-shadow: 0 0 5px var(--shadow-color);
+  padding: 20px 10px;
+  z-index: 1;
+}
+
+.envelope > .letter > .text {
+  font-family: 'Bierstadt', sans-serif;
+  color: var(--txt-color);
+  text-align: left;
+  font-size: 9px;
+}
+.heart {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -20%) rotate(45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
+}
+.heart:before, 
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
+}
+.heart:before {
+  top: -7.5px;
+}
+.heart:after {
+  right: 7.5px;
+}
+.flap > .envelope:before {
+  transform: rotateX(180deg);
+  z-index: 0;
+  transition-delay: 0.9s;
+}
+.flap > .envelope > .letter {
+  bottom: 100px;
+  transform: scale(1.3);
+  z-index: 3;
+  transition:all 1s ease-in-out;
+  transition-delay: 2s;
+}
+.flap > .heart {
+  transform: rotate(100deg);
+  transition-delay: 0.3s;
+}
